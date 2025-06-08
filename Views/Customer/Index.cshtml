@@ -1,0 +1,26 @@
+﻿@model List<CustomerService>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+<a class="btn btn-primary" asp-controller="Customer" asp-action="Create">Add Details</a>
+
+@foreach (var customer in Model)
+{
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">Customer ID: @customer.Id</li>
+        <li class="list-group-item">First Name: @customer.FirstName</li>
+        <li class="list-group-item list-group-item-secondary">Last Name: @customer.LastName</li>
+        <li class="list-group-item list-group-item-success">Email: @customer.Email</li>
+        <li class="list-group-item list-group-item-info">Phone: @customer.Phone</li>
+        <li class="list-group-item list-group-item-dark">Address: @customer.Address</li>
+        <li class="list-group-item">
+            <a class="btn btn-primary" asp-controller="Customer" asp-action="Edit" asp-route-id="@customer.Id">Edit</a>
+            <a class="btn btn-danger" asp-controller="Customer" asp-action="Delete" asp-route-id="@customer.Id">Delete</a>
+        </li>
+    </ul>
+}

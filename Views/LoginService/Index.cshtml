@@ -1,0 +1,38 @@
+﻿@model List<LoginService>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+<a class="btn btn-primary" asp-controller="LoginService" asp-action="Create">Login Here</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>UserName</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var login in Model)
+        {
+            <tr>
+                <td>@login.Id</td>
+                <td>@login.UserName</td>
+                <td>@login.Password</td>
+
+                <td>
+                    <a class="btn btn-primary" asp-controller="LoginService" asp-action="Edit" asp-route-id="@login.Id">Edit</a>
+                    <a class="btn btn-danger" asp-controller="LoginService" asp-action="Delete" asp-route-id="@login.Id">Delete</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
